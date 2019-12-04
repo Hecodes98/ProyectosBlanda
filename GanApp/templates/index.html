@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Paint Application</title>
+    <style type="text/css">
+    #realCanvas, #tempCanvas {position: absolute;left:30px;top:50px;border: 5px solid;cursor: crosshair;}
+    #tool1{position:absolute; left:30px; top:573px}
+    #tool2{position:absolute; left:148px; top:573px}
+    #tool3{position:absolute; left:229px; top:573px}
+    #table1{position:absolute;left:315px; top:573px; width: 400px}
+    </style>
+    <script src="/static/vendor/jquery/jquery.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/static/vendor/bootstrap/css/bootstrap.min.css">
+    <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <div>
+        <br><button id="tool1" class="btn btn-primary" type="button" onclick="curr_tool('rectangle')">RECTANGLE</button></br>
+        <br><button id="tool2" class="btn btn-primary" type="button" onclick="curr_tool('circle')">CIRCLE</button></br>
+        <br><button id="tool3" class="btn btn-primary" type="button" onclick="clears()">CLEAR</button></br>
+
+        <div>
+          <canvas id="realCanvas" width="512" height="512" style=" background-color: #ffffff; z-index: 0"  ></canvas>
+          <canvas id="tempCanvas" width="512" height="512"  style="z-index: 1"></canvas>
+        </div>
+
+        <table id="table1" class="form-control">
+          <tr>
+              <td><button onclick="color('#0006D9')" style="background-color: #0006D9; height: 20px; width: 20px;"></button></td>
+              <td><button onclick="color('#0D3DFB')" style="background-color: #0D3DFB; height: 20px; width: 20px;"></button></td>
+              <td><button onclick="color('#A50000')" style="background-color: #A50000; height: 20px; width: 20px;"></button></td>
+              <td><button onclick="color('#0075FF')" style="background-color: #0075FF; height: 20px; width: 20px;"></button></td>
+              <td><button onclick="color('#68F898')" style="background-color: #68F898; height: 20px; width: 20px;"></button></td>
+              <td><button onclick="color('#1DFFDD')" style="background-color: #1DFFDD; height: 20px; width: 20px;"></button></td>
+              <td><button onclick="color('#EEED28')" style="background-color: #EEED28; height: 20px; width: 20px;"></button></td>
+              <td><button onclick="color('#B8FF38')" style="background-color: #B8FF38; height: 20px; width: 20px;"></button></td>
+              <td><button onclick="color('#FF9204')" style="background-color: #FF9204; height: 20px; width: 20px;"></button></td>
+              <td><button onclick="color('#FF4401')" style="background-color: #FF4401; height: 20px; width: 20px;"></button></td>
+              <td><button onclick="color('#F60001')" style="background-color: #F60001; height: 20px; width: 20px;"></button></td>
+              <td><button onclick="color('#00C9FF')" style="background-color: #00C9FF; height: 20px; width: 20px;"></button></td>
+              <td><input type="checkbox" id="fill" checked="checked"/>Fill</td>
+              <td><input type="checkbox" id="outline"/>Outline</td>
+            </tr>
+          </table>
+
+          <h2 style="position: absolute; left:200px;top:0px">Dibuja aquí</h2>
+
+        </div>
+        <div>
+          <img src="#" style="width: 512; height: 512; background-color: aqua; position:absolute; left:700px; top: 50px;" id="generated_image">
+        </div>
+      </div>
+      <script src="../static/js/draw.js"> </script>
+      <script src="../static/js/requests.js"> </script>
+    </body>
+  </html>
